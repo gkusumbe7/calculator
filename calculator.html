@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Calculator</title>
+    <style>
+        .calculator-container{
+                height:550px;
+                width: 350px;
+                /* background-color: rgb(11, 66, 66); */
+                background: linear-gradient(rgb(11, 107, 126), rgb(2, 48, 26));
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 100px;
+                border-radius: 15px;
+        }
+        .barand-name{
+            color: aqua;
+            margin-left:10px;
+            padding-top:10px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            display: block;
+        }
+
+        .calculator-screen{
+            width:300px;
+            height:100px;
+            border-radius:10px;
+            margin-left:20px;
+            margin-top:5px;
+            font-size: 35px;
+            color: rgb(31, 240, 240);
+            background-color: rgb(7, 17, 37);
+            border-color: rgb(19, 204, 241);
+        }
+
+        .button-container{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around; 
+
+        }
+
+        .cal-button{
+            /* background-color: rgb(199, 245, 247); */
+            background: linear-gradient(rgb(209, 235, 240), rgb(116, 231, 176));
+            height: 55px;
+            width: 55px;
+            font-size:25px;
+            border-radius:8px;    
+            margin:10px;     
+            font-weight: bold;  
+            cursor: pointer;           
+        }
+
+        .cal-button:hover{
+            box-shadow: 0 2px 5px rgb(105, 241, 241);
+            transition:0.1s;
+        }
+
+        .bg-button{
+            /* background-color: rgb(6, 204, 161); */
+            background: linear-gradient(rgb(14, 194, 230), rgb(11, 233, 125));
+        }
+
+
+        /* Media Screen */
+        /* Media Screen */
+        @media screen and (max-width:500px) {
+            .calculator-screen{
+            width:300px;
+            height:100px;
+            border-radius:10px;
+            margin-left:20px;
+            margin-top:5px;
+            font-size: 35px;
+            color: rgb(8, 22, 1);
+            background-color: rgb(162, 167, 105);
+            border-color: rgb(19, 204, 241);
+        }
+
+            .calculator-container{
+                height:550px;
+                width: 350px;
+                /* background-color: rgb(11, 66, 66); */
+                background: linear-gradient(rgb(146, 214, 228), rgb(101, 233, 84));
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 100px;
+                border-radius: 15px;
+            }
+        }
+        
+    </style>
+</head>
+
+<script>
+    function clickHandle(val){
+        const inputBox = document.getElementById("calculator-screen");
+        inputBox.value = (inputBox.value + val);
+    }
+
+    function clearScreen(){
+        const inputBox = document.getElementById("calculator-screen");
+        inputBox.value = "";
+    }
+    
+    function calculate(){
+        const inputBox = document.getElementById("calculator-screen");
+        inputBox.value = eval(inputBox.value);  
+         inputBox = ans;
+    }
+
+</script>
+<body>
+     <div class="calculator-container">
+        <p class="barand-name"><b>GK</b></p>
+        <input type="text" class="calculator-screen" id="calculator-screen" />
+        <div class="button-container">
+            <button class="cal-button" onclick="clickHandle(7)">7</button>
+            <button class="cal-button" onclick="clickHandle(8)">8</button>
+            <button class="cal-button" onclick="clickHandle(9)">9</button>
+            <button class="cal-button bg-button" onclick="clearScreen(9)">AC</button>
+        </div>
+        <div class="button-container">
+            <button class="cal-button" onclick="clickHandle(4)">4</button>
+            <button class="cal-button" onclick="clickHandle(5)">5</button>
+            <button class="cal-button" onclick="clickHandle(6)">6</button>
+            <button class="cal-button bg-button" onclick="clickHandle('+')">+</button>
+        </div>
+        <div class="button-container">
+            <button class="cal-button" onclick="clickHandle(1)">1</button>
+            <button class="cal-button" onclick="clickHandle(2)">2</button>
+            <button class="cal-button" onclick="clickHandle(3)">3</button>
+            <button class="cal-button bg-button" onclick="clickHandle('-')">-</button>
+        </div>
+        <div class="button-container">
+            <button class="cal-button" onclick="clickHandle(3)">3</button>
+            <button class="cal-button" onclick="clickHandle(2)">2</button>
+            <button class="cal-button" onclick="clickHandle(1)">1</button>
+            <button class="cal-button bg-button" onclick="clickHandle('*')">*</button>
+        </div>
+        <div class="button-container">
+            <button class="cal-button" onclick="clickHandle(0)">0</button>
+            <button class="cal-button" onclick="clickHandle('00')">00</button>
+            <button class="cal-button bg-button" onclick="clickHandle('.')">.</button>
+            <button class="cal-button bg-button"onclick="calculate()" >=</button>
+        </div>
+     </div>
+</body>
+</html>
